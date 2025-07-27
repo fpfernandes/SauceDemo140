@@ -1,0 +1,18 @@
+O que e um repositorio?
+- servico que armazena com seguranca tudo que produzimos --> cofre
+- possui um controle de acesso --> dar e remover permissoes para convidados 
+- possui um controle de versao --> maquina do tempo (volta para versao anterior)
+
+Serve como um portfolio
+
+www.github.com --> empresa adquirida pela Microsoft
+
+Error when trying to commit code from VS Code to GitHub:
+
+"Make sure you configure your "user.name" and "user.email" in git.
+(guardar o email e senha para conectar no GitHub)
+
+- Click on Cancel
+- Go to terminal and type: 
+git config --global user.name "xxxx" 
+git config --global user.email "xxxx"
