@@ -16,3 +16,20 @@ Error when trying to commit code from VS Code to GitHub:
 - Go to terminal and type: 
 git config --global user.name "xxxx" 
 git config --global user.email "xxxx"
+
+- click on commit again
+- click on publish branch
+
+How to clone github repo:
+file > open folder> Iterasys
+- go to github repo page
+- click on code > clone, copy https path
+- type on terminal 
+cd .. 
+cd..
+git clone https://github.com/fpfernandes/SauceDemo140.git
+enter
+cd .\nomedoreponogit\
+
+
+para testar o arquivo: pytest -k "test_selecionar_produto_swd"
