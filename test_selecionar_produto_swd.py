@@ -25,7 +25,7 @@ class TestProdutos():
     # 2.2 - Funcoes e methodos (dentro da classe)
     def setup_method(self, method):                        # metodo de inicializacao dos testes
         self.driver = webdriver.Chrome(options=options)                     # instanciar o objeto do selenium webdriver como chrome
-        self.driver.implicitly_wait(10)                    # define o tempo de espera padrao por elemento em 10 segundos
+        self.driver.implicitly_wait(15)                    # define o tempo de espera padrao por elemento em 10 segundos
    # a espera vale para todo script
 
     def teardown_method(self, method):                     # metodo de finalizacao dos testes
@@ -38,9 +38,16 @@ class TestProdutos():
         self.driver.find_element(By.CSS_SELECTOR, "input.submit-button.btn_action").click() # click botao login
 
         # transicao de pagina
-        
         assert self.driver.find_element(By.CSS_SELECTOR, ".title").text == "Products"      # confirma se esta escrito Products no elemento
         assert self.driver.find_element(By.ID, "item_4_title_link").text == "Sauce Labs Backpack"  # confirma se e a mochila
-        # confirma o preco da mochila
-        assert self.driver.find_element(By.CSS_SELECTOR, ".inventory_item:nth-child(1) .inventory_item_price").text == "$29.99"
+        assert self.driver.find_element(By.CSS_SELECTOR, ".inventory_item:nth-child(1) .inventory_item_price").text == "$29.99" # confirma o preco da mochila
+        self.driver.find_element(By.CSS_SELECTOR, "*[data-test='add-to-cart-sauce-labs-backpack']").click()         # clicar no produto
 
+        assert self.driver.find_element(By.ID, "shopping_cart_container").text == "1"      # confirmar quantidade no carrinho
+        self.driver.find_element(By.ID, "shopping_cart_container").click()                 # clicar no carrinho
+        assert self.driver.find_element(By.CSS_SELECTOR, ".cart_quantity").text == "1"     # confere quantidade no carrinho
+        assert self.driver.find_element(By.ID, "item_4_title_link").text == "Sauce Labs Backpack"  # confere nome do produto
+        assert self.driver.find_element(By.CSS_SELECTOR, ".inventory_item_price").text == "$29.99"        # confere preco do produto
+        self.driver.find_element(By.ID, "remove-sauce-labs-backpack").click()              # clicar em remover produto
+        self.driver.find_element(By.ID, "react-burger-menu-btn").click()                   # clicar em burger menu
+        self.driver.find_element(By.ID, "logout_sidebar_link").click()                     # clicar em logout
