@@ -33,3 +33,5 @@ cd .\nomedoreponogit\
 
 
 para testar o arquivo: pytest -k "test_selecionar_produto_swd"
+
+pip install behave

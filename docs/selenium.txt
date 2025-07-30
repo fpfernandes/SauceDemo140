@@ -2,3 +2,21 @@ Existem 3 pontos principais de fragilidade em uma automacao:
 1 - seletor errado, seletor mudou, seletor dinamico
 2 - sincronismo (tipos de espera - waits)
 3 - programacao exotica
+
+Formas de Criacao e Organizacao do Script 
+
+1 - Gravacao (Capture & Playback / Record & Play) selenium IDE
+2 - Exportacao e Importacao de codigo fonte (usando um gravador e exportando 
+o codigo para vs code para ajustar) Gera um script simples 
+3 - Criar o script simples manualmente --> 1 script de teste = 1 arquivo
+4 - Script com Cucumber / Behave(reconhece sintaxe gherkin) --> 1 teste = 2 arquivos 
+(.feature em Gherkin e .py que e o script de automacao)
+
+BDD = Behaviour Driven Development (Desenvolvimento direcionado por comportamento)
+---> Foco no comportamento esperado do software -- Dito pelo PO (Product Owner)
+
+---> Criterio de Aceitacao --> Sintaxe Gherkin
+Dado - Quando - Entao (Given - When- Then) Se tiver uma condicao OU tem que separar em dois cenarios
+cucumber.io
+
+Behave: Framework que e gerenciador de integracao entre o script de gherkin e automacao
