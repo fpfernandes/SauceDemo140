@@ -4,7 +4,7 @@ from behave import given, when, then
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-@given(u'que acesso o site Sauce SauceDemo140')
+@given(u'que acesso o site Sauce Demo')
 def step_impl(context):
     # setup / inicializacao
     context.driver = webdriver.Chrome()                 # instanciar o objeto do selenium webdriver especializado para o chrome
@@ -23,10 +23,14 @@ def step_impl(context, usuario, senha):
 @then(u'sou direcionado para pagina Home')
 def step_impl(context):
     assert context.driver.find_element(By.CSS_SELECTOR, ".title").text == "Products"
-    #time.sleep(2) # espera por dois segundos - remover depois = alfinete
+    time.sleep(2) # espera por dois segundos - remover depois = alfinete
 
     # teardown / encerramento
     context.driver.quit()
 
+@then(u'exibe a mensagem de erro no login')
+def step_impl(context):
+    # validar a mensagem de error
+    assert context.driver.find_element(By.CSS_SELECTOR, "h3").text == "Epic sadface: Username and password do not match any user in this service"
 
 
