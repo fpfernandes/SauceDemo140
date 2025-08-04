@@ -41,6 +41,17 @@ def step_impl(context):
     # nao preencho a senha
     context.driver.find_element(By.ID, "login-button").click()              # clicar no botao login
 
+# Preencher com usuario e senha atraves da decisao (IF)
+@when(u'digito os campos de login com usuario {usuario} e senha {senha} com IF')
+def step_impl(context, usuario, senha):
+    if usuario != '<branco>':
+        context.driver.find_element(By.ID, "user-name").send_keys(usuario)      # preencher o usuario
+        # se o usuario estiver em <branco> nao ha acao de preenchimento
+    if senha != '<branco>':
+        context.driver.find_element(By.ID, "password").send_keys(senha)         # preencher a senha
+        # se a senha estiver em <branco> nao ha acao de preenchimento
+
+    context.driver.find_element(By.ID, "login-button").click()              # clicar no botao login
 
 @then(u'sou direcionado para pagina Home')
 def step_impl(context):
